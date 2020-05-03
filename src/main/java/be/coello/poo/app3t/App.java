@@ -1,4 +1,5 @@
 package be.coello.poo.app3t;
+ 
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +16,7 @@ public class App implements CommandLineRunner{
 	
 	public static void main(String[] args) {
 			
+		//@SuppressWarnings("resource")
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml"); 
 		
 		ui = (IUi) ctx.getBean("uiConsole"); 
@@ -26,14 +28,9 @@ public class App implements CommandLineRunner{
 		System.out.println("End");
 
 	}
-
-	
-	
-	
 	
 	public void run(String... args) throws Exception {
 		
 		
 	}
-
 }

@@ -1,5 +1,6 @@
 package be.coello.poo.app3t.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -7,6 +8,29 @@ import be.coello.poo.app3t.entities.Person;
 
 public class DaoFile implements IDao {
 
+	private List<Person> people = new ArrayList<Person>(); 
+	private String filename; 
+	
+	
+	public DaoFile() {
+		this.filename = "data\\members.xml"; 
+	}
+	
+	
+	public String getFilemane() {
+		return filename; 
+	}
+	
+	
+	public void setFilename(String filename) {
+		this.filename = filename; 
+	}
+	
+	
+	
+	
+	
+	
 	public void save(Person p) {
 		// TODO Auto-generated method stub
 		

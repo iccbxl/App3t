@@ -3,15 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
-	<bean id="daoFile" class="be.iccbxl.poo.App3tierGit.dao.DaoFile">
+	<bean id="daoFile" class="be.coello.poo.app3t.dao.DaoFile">
 		<property name="filename" value="data\\membres.xml" />
 	</bean>
 	
-	<bean id="metier" class="be.iccbxl.poo.App3tierGit.metier.Metier">
+	<bean id="metier" class="be.coello.poo.app3t.metier.Metier">
 		<property name="dao" ref="daoFile" />
 	</bean>
 	
-	<bean id="uiConsole" class="be.iccbxl.poo.App3tierGit.ui.UiConsole">
+	<bean id="uiConsole" class="be.coello.poo.app3t.ui.UiConsole">
 		<property name="metier" ref="metier" />
 	</bean>
 </beans>
