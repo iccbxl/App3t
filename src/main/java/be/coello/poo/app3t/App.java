@@ -8,25 +8,31 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import be.coello.poo.app3t.ui.IUi;
 
 @SpringBootApplication
-public class App implements CommandLineRunner {
-	
+public class App implements CommandLineRunner{
+
 	private static IUi ui; 
 	
-
+	
 	public static void main(String[] args) {
+			
+		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml"); 
 		
-		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml");
+		ui = (IUi) ctx.getBean("uiConsole"); 
 		
-		ui = (UIi) ctx.getBean("uiConsole");
+		System.out.println("start");
 		
+		ui.run();
 		
-		// TODO Auto-generated method stub
-		System.out.println("go");
+		System.out.println("End");
 
 	}
 
+	
+	
+	
+	
 	public void run(String... args) throws Exception {
-		// TODO Auto-generated method stub
+		
 		
 	}
 
