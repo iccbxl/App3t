@@ -42,11 +42,6 @@ public class Metier implements IMetier {
 	}
 	
 	
-	
-	
-	
-	
-	
 	public List<Person> getMembers() {		
 		return dao.findAll();
 	}

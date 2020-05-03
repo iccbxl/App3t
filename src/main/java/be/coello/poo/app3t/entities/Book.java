@@ -1,6 +1,7 @@
 package be.coello.poo.app3t.entities;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.UUID;
 
 public class Book {
@@ -90,10 +91,51 @@ public class Book {
 	public String toString() {
 		return "Book [id=" + id + ", title=" + title + ", author=" + author + ", totalpages=" + totalpages
 				+ ", loanPeriod=" + loanPeriod + ", retalPrice=" + retalPrice + ", borrowingDate=" + borrowingDate
-				+ ", langguage=" + langguage + ", borrower=" + borrower + "]";
+				+ ", langguage=" + langguage + ", borrower=" + ((borrower !=null)? borrower.getName() :null) + "]";
+	}	
+	
+	public byte computRemainDays() {
+		byte nbdays; 		
+		LocalDate today = LocalDate.now(); 
+		LocalDate returnDate = borrowingDate.plusDays(loanPeriod); 		
+		Period p = Period.between(today, returnDate); 		
+		nbdays = (byte) p.getDays();
+		return nbdays; 
+		
+	}
+	
+	public void updatebook(Book book) {
+		this.title = book.title; 
+		this.author = book.author; 
+		this.totalpages = book.totalpages; 
+		this.loanPeriod = book.loanPeriod; 
+		this.retalPrice = book.retalPrice; 
+		this.langguage = book.langguage;
 	}
 	
 	
-	
-	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

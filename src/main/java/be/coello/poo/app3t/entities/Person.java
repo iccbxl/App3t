@@ -14,19 +14,20 @@ public class Person {
 	private LocalDate registrationDate; 
 	private ArrayList<Book> books;
 	
-	public Person(UUID id, String name, String lastname, String tel, byte maxBooks, LocalDate registrationDate,
-			ArrayList<Book> books) {
-		super();
+	public Person(UUID id, String name, String lastname) {
+		
 		this.id = id;
 		this.name = name;
 		this.lastname = lastname;
-		this.tel = tel;
-		this.maxBooks = maxBooks;
-		this.registrationDate = registrationDate;
-		this.books = books;
+		this.tel = "";
+		this.maxBooks = 3; 
+		this.registrationDate = LocalDate.now();
+		this.books = new ArrayList<Book>();
 	}
 	
-	
+
+
+
 	public UUID getId() {
 		return id;
 	}
@@ -44,19 +45,13 @@ public class Person {
 	}
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
-	}
-	
-	
+	}	
 	public String getTel() {
 		return tel;
 	}
-
-
 	public void setTel(String tel) {
 		this.tel = tel;
 	}
-
-
 	public byte getMaxBooks() {
 		return maxBooks;
 	}
@@ -89,7 +84,10 @@ public class Person {
 
 	public void borrows(Book b) {
 	    // add book to this person 
+		this.books.add(b);
+		
 		// add person to book
+		
 		// add boorrow date to book
 		
 	}
@@ -97,6 +95,7 @@ public class Person {
 	
 	public void retunrs(Book b) {
 		// remove book from this person 
+		this.books.remove(b);
 		// remove person in book // set null
 		// remove borrowing date / set null
 		

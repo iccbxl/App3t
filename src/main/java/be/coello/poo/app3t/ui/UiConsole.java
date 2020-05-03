@@ -1,8 +1,10 @@
 package be.coello.poo.app3t.ui;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.UUID;
 
 import be.coello.poo.app3t.entities.Person;
 import be.coello.poo.app3t.metier.IMetier;
@@ -47,15 +49,19 @@ public class UiConsole  implements IUi {
 				return; 
 			case 1: 
 				// Get all members
-				members = metier.getMembers();
+				members = metier.getMembers();				
 				
 				// print all members
-				//printMembers();
+				printMembers();				
 				
-				message = "";
-				
+				message = "";				
 				break;
-			case 2: 
+				
+			case 2:
+				System.out.println("Member name please: ");
+				name = s.nextLine();
+				
+				Person newMember = new Person(UUID.randomUUID(), name); 
 				break;
 			case 3: 
 				break;				
@@ -68,6 +74,18 @@ public class UiConsole  implements IUi {
 		System.out.println(message);
 		
 	}
+	
+	
+	
+	private void printMembers() {
+		Iterator<Person> it = members.iterator();
+		while(it.hasNext()) {
+			Person p = it.next(); 
+			System.out.println("Name: " + p.getName() + " Registred at: " + p.getRegistrationDate());
+		}
+	}
+	
+	
 	
 	
 }
