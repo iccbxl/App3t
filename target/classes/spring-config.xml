@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="daoFile" class="be.iccbxl.poo.App3tierGit.dao.DaoFile">
+		<property name="filename" value="data\\membres.xml" />
+	</bean>
+	
+	<bean id="metier" class="be.iccbxl.poo.App3tierGit.metier.Metier">
+		<property name="dao" ref="daoFile" />
+	</bean>
+	
+	<bean id="uiConsole" class="be.iccbxl.poo.App3tierGit.ui.UiConsole">
+		<property name="metier" ref="metier" />
+	</bean>
+</beans>
