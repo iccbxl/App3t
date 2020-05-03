@@ -14,7 +14,7 @@ public interface IMetier {
 	public void update(Person p);
 	public void unregistre(Person p);
 	public List<Person> findByName(String name); 
-	public List<Person> findByTel(String name); 
+	public List<Person> findByTel(String tel); 
 	
 	
 	

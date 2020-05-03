@@ -13,43 +13,66 @@ public class Metier implements IMetier {
 	private IDao dao; 
 	private List<Person> people = new ArrayList<Person>(); 
 	
+	public Metier() {
+		
+	}
 	
 	
+	public Metier(IDao dao) {
+		this.dao = dao; 
+	}
 	
+	public IDao getDao() {
+		return dao; 
+	}	
+	
+	public void setDao(IDao dao) {
+		this.dao = dao; 
+	}
 
-	public List<Person> getMembers() {
-		// TODO Auto-generated method stub
-		return null;
+	public int computingRemainingDays(Book b) {		
+		int remainingDays = 0; 
+		
+		// Fecha de prestamo
+		// calculo de la duracio del prstamos
+		// calculo del n days restantes
+		
+		return remainingDays;  
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	public List<Person> getMembers() {		
+		return dao.findAll();
 	}
 
 	public void registre(Person p) {
-		// TODO Auto-generated method stub
-		
+		dao.save(p);
 	}
 
 	public void update(Person p) {
-		// TODO Auto-generated method stub
-		
+		dao.update(p);
 	}
 
 	public void unregistre(Person p) {
-		// TODO Auto-generated method stub
-		
+		dao.delete(p);	
+	}
+	
+	public List<Person> findByName(String name) {		
+		return dao.findBy("name", name);
+	}
+	
+	public List<Person> findByTel(String tel) {
+		return dao.findBy("tel", tel);
 	}
 
-	public List<Person> findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+	
 
-	public List<Person> findByTel(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public int computingRemainingDays(Book b) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 }
