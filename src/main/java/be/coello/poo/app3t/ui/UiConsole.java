@@ -74,16 +74,12 @@ public class UiConsole  implements IUi {
 				message = "end Menu 1";				
 				break;
 				
-			case 2:
-				
+			case 2:				
 				System.out.println("Member name please: ");
-				name = s.nextLine();
-				
-				Person newMember = new Person(UUID.randomUUID(), name); 
-				
+				name = s.nextLine();				
+				Person newMember = new Person(UUID.randomUUID(), name); 				
 				metier.registre(newMember);				
-				//message = "Registre ok "; 
-				
+				//message = "Registre ok "; 				
 				System.err.print("- New Member add\n");
 				System.out.println(newMember.toString());
 				System.err.print("-----------------------------------\n");							
@@ -92,32 +88,56 @@ public class UiConsole  implements IUi {
 				printMembers();
 				System.err.print("-----------------------------------\n");
 				message = "end Menu 2";		
-				break;
-				
+				break;				
 				///############################################
 				 
 			case 3: 
 				Person p = null;
 				System.err.print("-- DELETE A MEMBER ---------------------------------\n");
-				System.out.print("Veuillez entre le nom du membre: ");
-				
-				name = s.nextLine();
-								
+				System.out.print("Veuillez entre le nom du membre: ");				
+				name = s.nextLine();								
 				members = metier.findByName(name);								
 				System.out.println("Chosse the member to delete");
-				printMembers();
-								
-				choix = s.nextInt(); s.nextLine();
+				printMembers();								
+				choix = s.nextInt(); s.nextLine();				
+				// chosse the x person from the member list and delete				
+				p = members.get( choix - 1 );				
+				metier.unregistre(p);				
+				message = "end Menu 3";		 				
+				break;
 				
-				// chosse the x person from the member list and delete
 				
-				p = members.get( choix - 1 );
 				
-				metier.unregistre(p);
 				
-				message = "end Menu 3";		 
+			case 4: // Edit
+				// search a member by name o tel 
+				// ask new info
+				// save
+				// show ne info
+				break;
+				
+				
+				
+			case 5: 
 				
 				break;
+				
+				
+				
+			case 6: 
+				
+				break;
+				
+				
+				
+			case 7: 
+				
+				break;
+				
+				
+				
+				
+				
 				
 			default: 
 				System.out.println("Commande error");
