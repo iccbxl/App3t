@@ -1,5 +1,7 @@
 package be.coello.poo.app3t.metier;
 
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +13,7 @@ public class Metier implements IMetier {
 	
 	
 	private IDao dao; 
+	
 	private List<Person> people = new ArrayList<Person>(); 
 	
 	public Metier() {
@@ -33,10 +36,11 @@ public class Metier implements IMetier {
 	public int computingRemainingDays(Book b) {		
 		int remainingDays = 0; 
 		
-		// Fecha de prestamo
-		// calculo de la duracio del prstamos
-		// calculo del n days restantes
-		
+		LocalDate returnDate = b.getBorrowingDate().plusDays(b.getLoanPeriod()); 	
+		LocalDate today = LocalDate.now();
+		Period p = Period.between(today, returnDate);
+		remainingDays = (byte) p.getDays();
+
 		return remainingDays;  
 		
 	}
@@ -48,6 +52,10 @@ public class Metier implements IMetier {
 
 	public void registre(Person p) {
 		dao.save(p);
+	}
+
+	public void remove(Person p) {
+		dao.delete(p);
 	}
 
 	public void update(Person p) {
@@ -62,9 +70,6 @@ public class Metier implements IMetier {
 		return dao.findBy("name", name);
 	}
 	
-	public List<Person> findByTel(String tel) {
-		return dao.findBy("tel", tel);
-	}
 
 	
 	

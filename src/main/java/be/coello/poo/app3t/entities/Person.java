@@ -8,7 +8,7 @@ public class Person {
 
 	protected UUID id; 
 	private String name; 
-	private String lastname;
+	
 	private String tel; 
 	private byte maxBooks; 
 	private LocalDate registrationDate; 
@@ -18,7 +18,7 @@ public class Person {
 		
 		this.id = id;
 		this.name = name;
-		this.lastname = "Sanchez";
+		
 		this.tel = "";
 		this.maxBooks = 3; 
 		this.registrationDate = LocalDate.now();
@@ -42,12 +42,9 @@ public class Person {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getLastname() {
-		return lastname;
-	}
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}	
+	
+
+
 	public String getTel() {
 		return tel;
 	}
@@ -79,7 +76,7 @@ public class Person {
 	
 	@Override
 	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", lastname=" + lastname + ", tel=" + tel + ", maxBooks="
+		return "Person [id=" + id + ", name=" + name + ", tel=" + tel + ", maxBooks="
 				+ maxBooks + ", registrationDate=" + registrationDate + ", books=" + books + "]";
 	}
 

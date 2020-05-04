@@ -80,7 +80,7 @@ public class MyLibrary {
 		
 		while(it.hasNext()) {
 			Person p = it.next();
-			System.out.println(++cpt + " - " p.getName() + " - " + p.getLastname() );
+			System.out.println(++cpt + " - " p.getName());
 		}
 		
 				
@@ -109,9 +109,12 @@ public class MyLibrary {
 					
 					while( (Line) != null ) {
 						data = Line.split(";");
-						Person p = new Person(UUID.fromString(data[0]), data[1], data[2]);
-						byte nbMaxBooks = Byte.parseByte(data[3]); 
-						LocalDate registrationDate = LocalDate.parse(data[4], DateTimeFormatter.ofPattern("dd-MM-yy"));
+						
+						Person p = new Person(UUID.fromString(data[0]), data[1]);
+						
+						byte nbMaxBooks = Byte.parseByte(data[2]); 
+						
+						LocalDate registrationDate = LocalDate.parse(data[3], DateTimeFormatter.ofPattern("dd-MM-yy"));
 						p.setMaxBooks(nbMaxBooks);
 						p.setRegistrationDate(registrationDate);
 						

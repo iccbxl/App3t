@@ -14,11 +14,15 @@ public class UiConsole  implements IUi {
 	private IMetier metier; 
 	private Scanner s = new Scanner(System.in); 
 	private List<Person> members = new ArrayList<Person>(); 
-	private String message; 
+	private String message =" -- not mesage -9-"; 
 	
-	public UiConsole() {
-		
+	public UiConsole() {		
 	}
+	
+	public UiConsole(IMetier metier) {
+		this.metier = metier;
+	}
+	
 	
 	public IMetier getMetier() {
 		return metier; 
@@ -42,13 +46,15 @@ public class UiConsole  implements IUi {
 		choix = s.nextInt(); 
 		s.nextLine();
 			
+		String name ;
+
 		
-		String name;
 		
 		// Traitement comande user
+		
 		switch(choix) {
 			case 0:
-				
+				message = "By bye"; 
 				return; 
 			case 1: 
 				// Get all members
@@ -57,45 +63,85 @@ public class UiConsole  implements IUi {
 				// print all members
 				printMembers();				
 				
-				message = "";				
+				message = "ALL Members";				
 				break;
 				
 			case 2:
+				
 				System.out.println("Member name please: ");
 				name = s.nextLine();
 				
-				Person nm = new Person(UUID.randomUUID(), name); 
+				Person newMember = new Person(UUID.randomUUID(), name); 
 				
-				metier.registre(nm);
+				metier.registre(newMember);
 				
 				message = "Registre ok "; 
 				
 				System.out.println("Member list");
+				
 				printMembers();
 				
 				break;
+				
+				///############################################
+				 
 			case 3: 
-				break;				
+				Person p = null;
+				
+				System.out.print("Veuillez entre le nom du membre: ");
+				
+				name = s.nextLine();
+								
+				members = metier.findByName(name); 
+				
+				printMembers(members);
+				
+				System.out.println("Chosse the member to delete");
+				
+				choix = s.nextInt(); s.nextLine();
+				
+				// chosse the x person from the member list and delete
+				
+				p = members.get( choix - 1 );
+				
+				metier.unregistre(p);
+				
+				message = "Member deleted"; 
+				
+				break;
+				
+			default: 
+				System.out.println("Commande error");
 		}
-		
-		
-		
-		
+						
 		// print message
 		System.out.println(message);
 		
 	}
 	
 	
+	/**
+	 * i give the members list to print
+	 * @param members
+	 */
+	private void printMembers(List<Person> members) {		
+		Iterator<Person> it = members.iterator();		
+		while(it.hasNext()) {
+			Person p = it.next(); 
+				System.out.println("Name: " + p.getName() + " Registred at: " + p.getRegistrationDate());			
+		}		
+	}
 	
+	
+	/**
+	 * i print all member list
+	 */
 	private void printMembers() {
-		Iterator<Person> it = members.iterator();
-		
+		Iterator<Person> it = members.iterator();		
 		while(it.hasNext()) {
 			Person p = it.next(); 
 			System.out.println("Name: " + p.getName() + " Registred at: " + p.getRegistrationDate());
-		}
-		
+		}		
 	}
 	
 	

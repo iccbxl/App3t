@@ -25,7 +25,8 @@ public class DaoFile implements IDao {
 	
 	
 	public DaoFile() {
-		this.filename = "data\\members.xml"; 
+		this.filename = "membres.xml"; 
+		//this.filename = "members.xml"; 
 	}
 	
 	public DaoFile(String filename) {
@@ -59,7 +60,7 @@ public class DaoFile implements IDao {
 			
 			if(currentPerson.getId().equals(p.getId())) {
 				update(p);
-				find = true;
+				
 				return;
 			}
 		}
