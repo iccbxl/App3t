@@ -23,71 +23,38 @@ public class DaoFile implements IDao {
 	private List<Person> people = new ArrayList<Person>(); 
 	private String filename; 
 	
-	
 	public DaoFile() {
-		this.filename = "membres.xml"; 
+		
+		//this.filename = System.getProperty("user.home").concat("/home/robin/ws2019-2020/mavenTest/mavenTest/data/membres.xml");  
+		this.filename = "/home/robin/ws2019-2020/mavenTest/mavenTest/data/membres.xml";  
+		
 		//this.filename = "members.xml"; 
 	}
 	
 	public DaoFile(String filename) {
 		this.filename = filename;  
 	}
-	
-	
+		
 	public String getFilemane() {
 		return filename; 
 	}
-	
-	
+		
 	public void setFilename(String filename) {
 		this.filename = filename; 
 	}
 	
-	
-	
-	
-	
-	
-	public void save(Person p) {
-		findAll();
-		
-		boolean find = false;
-		Person currentPerson = null;
-		Iterator<Person> it = people.iterator();
-		
-		while(it.hasNext()) {
-			currentPerson = it.next();
-			
-			if(currentPerson.getId().equals(p.getId())) {
-				update(p);
-				
-				return;
-			}
-		}
-		
-		if(!find) {
-			people.add(p);
-		}
-		
-		// write
-		writeXMLFile(filename, this.people);
-}
-
 	public List<Person> findAll() {
 		this.people = readXMLFile(filename);
 		return people;
 	}
-
-
 	
-	
+	/**
+	 * Find by id 
+	 */
 	public Person findById(UUID id) {
-		findAll(); 
-		
-		Person p = null; 
-		
-		Iterator<Person> it = people.iterator();
-		
+		findAll(); 		
+		Person p = null; 		
+		Iterator<Person> it = people.iterator();		
 		while(it.hasNext()) {
 			p = it.next();
 			if(p.getId().equals(id)) {
@@ -97,10 +64,7 @@ public class DaoFile implements IDao {
 		return null;
 	}
 	
-	
-	
-	
-
+/*
 	public List<Person> findBy(String property, String value) {
 		findAll(); 
 		ArrayList<Person> result = new ArrayList<Person>();
@@ -141,7 +105,7 @@ public class DaoFile implements IDao {
 		
 		
 	}
-
+*/
 	public void update(Person p) {
 		findAll();
 		
@@ -163,9 +127,34 @@ public class DaoFile implements IDao {
 		}
 		
 		// wirte
-		//writeXMLFile(filename, this.people);
+		writeXMLFile(filename, this.people);
 }
 	
+
+	public void save(Person p) {
+		findAll();
+		
+		boolean find = false;
+		Person currentPerson = null;
+		Iterator<Person> it = people.iterator();
+		
+		while(it.hasNext()) {
+			currentPerson = it.next();
+			
+			if(currentPerson.getId().equals(p.getId())) {
+				update(p);
+				
+				return;
+			}
+		}
+		
+		if(!find) {
+			people.add(p);
+		}
+		
+		// write
+		writeXMLFile(filename, this.people);
+}
 	
 	public void delete(UUID id) {
 		findAll();
@@ -186,7 +175,9 @@ public class DaoFile implements IDao {
 }
 	
 	
-
+/**
+ * 
+ */
 	public void delete(Person p) {
 		Iterator<Person> it = people.iterator();
 		
@@ -202,8 +193,22 @@ public class DaoFile implements IDao {
 		writeXMLFile(filename, this.people);
 	}
 
-	
+	/**
+	 * Read a file an return in a String
+	 * @param filename
+	 * @return
+	 */
 	private String readFile(String filename) {
+		
+		String str = "<Person>\n" + 
+				"	<id></id>\n" + 
+				"	<name></name>\n" + 
+				"	<maxBooks></maxBooks>\n" + 
+				"	<registrationDate></registrationDate>\n" + 
+				"	<books></books>\n" + 
+				"</Person>"; 
+		/*
+		
 		//String content = null;
 		String line = null;
 		StringBuilder sb = new StringBuilder();
@@ -223,17 +228,28 @@ public class DaoFile implements IDao {
 				} finally {
 					br.close();
 					fr.close();
-					System.out.println("Fin de lecture");
+					System.out.println("Fin de lecture" + filename);
 				}
 			} catch(Exception e) {
-				
+				System.err.println(e);
 			}
+		} else {
+			System.out.println( filename + "File no exist");
 		}
 		
+		
 		return sb.toString();
+		*/
+		return str; 
+		
 }
 	
-	
+	/**
+	 * 
+	 * @param xml
+	 * @return
+	 */
+	@SuppressWarnings("unchecked")
 	private List<Person> convertFromXMLStringtoList(String xml) {
 		XStream xs = new XStream(new DomDriver());
 		xs.alias("person", Person.class);
@@ -241,24 +257,30 @@ public class DaoFile implements IDao {
 		return (List<Person>) xs.fromXML(xml);
 	}
 
-	
+
+	/**
+	 * Convert file content in a XML 
+	 * @param filename File name 
+	 * @return
+	 */
 	private List<Person> readXMLFile(String filename) {
-		List<Person> list = new ArrayList<Person>();
-		
-		String xml = readFile(filename);
-		
-		list = convertFromXMLStringtoList(xml);
-		
+		List<Person> list = new ArrayList<Person>();					
+		String xml = readFile(filename);		
+		list = convertFromXMLStringtoList(xml);		
 		return list;
 	}
 
 	
-	
+	/**
+	 * Give a Person list <OBJET>, convert in XML > Write  in file
+	 * @param filename
+	 * @param people
+	 */
 	private void writeXMLFile(String filename, List<Person> people) {
 		File f = new File(filename);
 		FileWriter fr = null;
 		BufferedWriter br = null;
-		
+
 		XStream xs = new XStream(new DomDriver());
 		
 		//Configuration du parser XML
@@ -278,14 +300,17 @@ public class DaoFile implements IDao {
 				fr = new FileWriter(f);
 				br = new BufferedWriter(fr);
 				
-				xs.toXML(people, br);
+				xs.toXML(people, br);								
+				
 			} finally {
 				br.close();
 				fr.close();
-				System.out.println("Fin d'écriture.");
+				System.out.println("Fin d'écriture." + filename);
+				
 			}
 		} catch(Exception e) {
 			
+			System.out.println(e);
 		}
 }
 

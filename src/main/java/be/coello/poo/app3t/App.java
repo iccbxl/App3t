@@ -23,6 +23,8 @@ public class App implements CommandLineRunner{
 		
 		System.out.println("start");
 		
+		System.out.println(System.getProperty("user.home"));
+		
 		ui.run();
 		
 		System.out.println("End App.java");

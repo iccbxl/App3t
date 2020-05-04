@@ -1,3 +1,7 @@
 <Person>
-
+	<id></id>
+	<name></name>
+	<maxBooks></maxBooks>
+	<registrationDate></registrationDate>
+	<books></books>
 </Person>
