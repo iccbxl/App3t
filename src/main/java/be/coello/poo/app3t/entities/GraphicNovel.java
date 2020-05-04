@@ -29,13 +29,18 @@ public class GraphicNovel extends Book{
 	public void setColor(boolean color) {
 		this.color = color;
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
-		return "GraphicNovel [catoonist=" + catoonist + ", color=" + color + "]";
-	} 
+		return "GraphicNovel [catoonist=" + catoonist + ", color=" + color + ", id=" + id + ", title=" + title
+				+ ", author=" + author + ", totalpages=" + totalpages + ", loanPeriod=" + loanPeriod + ", retalPrice="
+				+ retalPrice + ", borrowingDate=" + borrowingDate + ", langguage=" + langguage + ", borrower="
+				+ borrower + "]";
+	}
 	
+	
+
 	
 	
 	

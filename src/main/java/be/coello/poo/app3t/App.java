@@ -25,7 +25,7 @@ public class App implements CommandLineRunner{
 		
 		ui.run();
 		
-		System.out.println("End");
+		System.out.println("End App.java");
 
 	}
 	

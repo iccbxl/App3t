@@ -43,9 +43,12 @@ public class UiConsole  implements IUi {
 		s.nextLine();
 			
 		
+		String name;
+		
 		// Traitement comande user
 		switch(choix) {
 			case 0:
+				
 				return; 
 			case 1: 
 				// Get all members
@@ -61,7 +64,15 @@ public class UiConsole  implements IUi {
 				System.out.println("Member name please: ");
 				name = s.nextLine();
 				
-				Person newMember = new Person(UUID.randomUUID(), name); 
+				Person nm = new Person(UUID.randomUUID(), name); 
+				
+				metier.registre(nm);
+				
+				message = "Registre ok "; 
+				
+				System.out.println("Member list");
+				printMembers();
+				
 				break;
 			case 3: 
 				break;				
@@ -79,10 +90,12 @@ public class UiConsole  implements IUi {
 	
 	private void printMembers() {
 		Iterator<Person> it = members.iterator();
+		
 		while(it.hasNext()) {
 			Person p = it.next(); 
 			System.out.println("Name: " + p.getName() + " Registred at: " + p.getRegistrationDate());
 		}
+		
 	}
 	
 	

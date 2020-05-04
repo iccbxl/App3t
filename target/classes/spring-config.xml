@@ -4,7 +4,7 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<bean id="daoFile" class="be.coello.poo.app3t.dao.DaoFile">
-		<property name="filename" value="data\\membres.xml" />
+		<property name="filename" value="membres.xml" />
 	</bean>
 	
 	<bean id="metier" class="be.coello.poo.app3t.metier.Metier">
