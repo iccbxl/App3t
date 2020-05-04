@@ -1,7 +1,18 @@
-<Person>
-	<id></id>
-	<name></name>
-	<maxBooks></maxBooks>
-	<registrationDate></registrationDate>
-	<books></books>
-</Person>
+<list>
+  <person>
+    <id>4cc8b1da-a3a7-4222-adf1-86be2dfc4eee</id>
+    <name>Robinson</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-04</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>a6848a60-6388-4612-a27c-ff4ce51e0256</id>
+    <name>gg</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-04</registrationDate>
+    <books/>
+  </person>
+</list>

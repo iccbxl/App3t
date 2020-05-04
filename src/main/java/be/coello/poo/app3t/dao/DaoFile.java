@@ -23,6 +23,7 @@ public class DaoFile implements IDao {
 	private List<Person> people = new ArrayList<Person>(); 
 	private String filename; 
 	
+	
 	public DaoFile() {
 		
 		//this.filename = System.getProperty("user.home").concat("/home/robin/ws2019-2020/mavenTest/mavenTest/data/membres.xml");  
@@ -43,8 +44,15 @@ public class DaoFile implements IDao {
 		this.filename = filename; 
 	}
 	
+	/**
+	 * 
+	 */
 	public List<Person> findAll() {
 		this.people = readXMLFile(filename);
+		
+		//Person p1 = new Person(UUID.randomUUID(), "Robinson"); 		
+		//people.add(p1); 
+		
 		return people;
 	}
 	
@@ -64,7 +72,7 @@ public class DaoFile implements IDao {
 		return null;
 	}
 	
-/*
+
 	public List<Person> findBy(String property, String value) {
 		findAll(); 
 		ArrayList<Person> result = new ArrayList<Person>();
@@ -105,7 +113,8 @@ public class DaoFile implements IDao {
 		
 		
 	}
-*/
+
+	
 	public void update(Person p) {
 		findAll();
 		
@@ -198,18 +207,8 @@ public class DaoFile implements IDao {
 	 * @param filename
 	 * @return
 	 */
-	private String readFile(String filename) {
-		
-		String str = "<Person>\n" + 
-				"	<id></id>\n" + 
-				"	<name></name>\n" + 
-				"	<maxBooks></maxBooks>\n" + 
-				"	<registrationDate></registrationDate>\n" + 
-				"	<books></books>\n" + 
-				"</Person>"; 
-		/*
-		
-		//String content = null;
+	private String readFile(String filename) {		
+		String content = null;
 		String line = null;
 		StringBuilder sb = new StringBuilder();
 		File f = new File(filename);
@@ -239,8 +238,7 @@ public class DaoFile implements IDao {
 		
 		
 		return sb.toString();
-		*/
-		return str; 
+
 		
 }
 	
@@ -264,9 +262,21 @@ public class DaoFile implements IDao {
 	 * @return
 	 */
 	private List<Person> readXMLFile(String filename) {
+		List<Person> list = new ArrayList<Person>();
+		FileReader fileReader = new FileReader(filename); 
+		XStream xs = new XStream(); 
+		xs.alias("person", Person.class);
+		
+		
+		/*
 		List<Person> list = new ArrayList<Person>();					
 		String xml = readFile(filename);		
-		list = convertFromXMLStringtoList(xml);		
+		list = convertFromXMLStringtoList(xml);	
+		*/
+		
+		
+		
+		
 		return list;
 	}
 
