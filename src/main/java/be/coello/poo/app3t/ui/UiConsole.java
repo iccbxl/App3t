@@ -35,11 +35,18 @@ public class UiConsole  implements IUi {
 	public void run() {
 		int choix; 
 		
-		// menu
-		System.out.println("1 - Show all members");
-		System.out.println("2 - Add members");
-		System.out.println("3 - Delete member");
-		System.out.println("0 - Logout");		
+		
+		// menu		System.out.println("1 - Show all members");
+		System.err.print("-----M E N U -------------------------\n"
+				+ "1 - List Members \n"
+				+ "2 - Add Members \n"
+				+ "3 - Delete Members \n"
+				+ "0 - Logout \n\n");
+		
+		//System.out.println("1 - List members");
+		//System.out.println("2 - Add members");
+		//System.out.println("3 - Delete member");
+		//System.out.println("0 - Logout");		
 		
 		// lacture choix user
 		
@@ -58,12 +65,13 @@ public class UiConsole  implements IUi {
 				return; 
 			case 1: 
 				// Get all members
-				members = metier.getMembers();				
-				
+				members = metier.getMembers();								
 				// print all members
-				printMembers();				
-				
-				message = "ALL Members";				
+				System.err.print("-----------------------------------\n");
+				System.err.print("- MEMBERS LIST\n");
+				printMembers();	
+				System.err.print("-----------------------------------\n");
+				message = "end Menu 1";				
 				break;
 				
 			case 2:
@@ -73,14 +81,18 @@ public class UiConsole  implements IUi {
 				
 				Person newMember = new Person(UUID.randomUUID(), name); 
 				
-				metier.registre(newMember);
-				
+				metier.registre(newMember);				
 				message = "Registre ok "; 
 				
-				System.out.println("Member list");
 				
+				System.err.print("-----------------------------------\n");
+				System.err.print("- MEMBERS LIST\n");
+				members = metier.getMembers();	
 				printMembers();
-				
+				System.err.print("- New Member add\n");
+				System.out.println(newMember.toString());
+				System.err.print("-----------------------------------\n");
+				message = "end Menu 2";		
 				break;
 				
 				///############################################
@@ -93,8 +105,9 @@ public class UiConsole  implements IUi {
 				name = s.nextLine();
 								
 				members = metier.findByName(name); 
-				
-				printMembers(members);
+				System.err.print("-----------------------------------\n");
+				printMembers();
+				System.err.print("-----------------------------------\n");
 				
 				System.out.println("Chosse the member to delete");
 				
@@ -106,7 +119,7 @@ public class UiConsole  implements IUi {
 				
 				metier.unregistre(p);
 				
-				message = "Member deleted"; 
+				message = "end Menu 3";		 
 				
 				break;
 				

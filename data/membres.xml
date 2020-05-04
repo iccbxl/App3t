@@ -9,7 +9,55 @@
   </person>
   <person>
     <id>a6848a60-6388-4612-a27c-ff4ce51e0256</id>
-    <name>gg</name>
+    <name>Patico Castillo</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-04</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>2e42139b-2380-4694-912c-344092e7b54f</id>
+    <name>ana</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-04</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>522b525c-52f0-4dbd-935d-1df75a168f14</id>
+    <name>Rafico mashi</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-04</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>bb60caa9-1319-4e02-a1b2-632d91cb083a</id>
+    <name>ana castillo</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-04</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>aaca686f-3d0c-4128-a883-52ef296cb487</id>
+    <name>jamil mahuad</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-04</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>23d864fb-1dea-4e7b-a6c4-ffb0588eb274</id>
+    <name>ana</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-04</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>1af5a02f-b87a-4cc7-9fde-75d2fef0d2a9</id>
+    <name>maria</name>
     <tel></tel>
     <maxBooks>3</maxBooks>
     <registrationDate>2020-05-04</registrationDate>

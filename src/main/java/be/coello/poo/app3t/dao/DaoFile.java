@@ -208,7 +208,6 @@ public class DaoFile implements IDao {
 	 * @return
 	 */
 	private String readFile(String filename) {		
-		String content = null;
 		String line = null;
 		StringBuilder sb = new StringBuilder();
 		File f = new File(filename);
@@ -224,6 +223,8 @@ public class DaoFile implements IDao {
 					while((line = br.readLine()) != null) {
 						sb.append(line);
 					}
+					
+					System.out.println("We can read");
 				} finally {
 					br.close();
 					fr.close();
@@ -233,7 +234,7 @@ public class DaoFile implements IDao {
 				System.err.println(e);
 			}
 		} else {
-			System.out.println( filename + "File no exist");
+			System.out.println( filename + " ERROR File no exist");
 		}
 		
 		
@@ -247,7 +248,7 @@ public class DaoFile implements IDao {
 	 * @param xml
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
+	//@SuppressWarnings("unchecked")
 	private List<Person> convertFromXMLStringtoList(String xml) {
 		XStream xs = new XStream(new DomDriver());
 		xs.alias("person", Person.class);
@@ -262,20 +263,15 @@ public class DaoFile implements IDao {
 	 * @return
 	 */
 	private List<Person> readXMLFile(String filename) {
-		List<Person> list = new ArrayList<Person>();
+		/*List<Person> list = new ArrayList<Person>();
 		FileReader fileReader = new FileReader(filename); 
 		XStream xs = new XStream(); 
 		xs.alias("person", Person.class);
+		*/
 		
-		
-		/*
 		List<Person> list = new ArrayList<Person>();					
 		String xml = readFile(filename);		
 		list = convertFromXMLStringtoList(xml);	
-		*/
-		
-		
-		
 		
 		return list;
 	}
