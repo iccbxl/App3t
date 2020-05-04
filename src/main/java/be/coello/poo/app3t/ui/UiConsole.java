@@ -82,15 +82,14 @@ public class UiConsole  implements IUi {
 				Person newMember = new Person(UUID.randomUUID(), name); 
 				
 				metier.registre(newMember);				
-				message = "Registre ok "; 
+				//message = "Registre ok "; 
 				
-				
-				System.err.print("-----------------------------------\n");
+				System.err.print("- New Member add\n");
+				System.out.println(newMember.toString());
+				System.err.print("-----------------------------------\n");							
 				System.err.print("- MEMBERS LIST\n");
 				members = metier.getMembers();	
 				printMembers();
-				System.err.print("- New Member add\n");
-				System.out.println(newMember.toString());
 				System.err.print("-----------------------------------\n");
 				message = "end Menu 2";		
 				break;
@@ -99,18 +98,15 @@ public class UiConsole  implements IUi {
 				 
 			case 3: 
 				Person p = null;
-				
+				System.err.print("-- DELETE A MEMBER ---------------------------------\n");
 				System.out.print("Veuillez entre le nom du membre: ");
 				
 				name = s.nextLine();
 								
-				members = metier.findByName(name); 
-				System.err.print("-----------------------------------\n");
-				printMembers();
-				System.err.print("-----------------------------------\n");
-				
+				members = metier.findByName(name);								
 				System.out.println("Chosse the member to delete");
-				
+				printMembers();
+								
 				choix = s.nextInt(); s.nextLine();
 				
 				// chosse the x person from the member list and delete
@@ -150,10 +146,12 @@ public class UiConsole  implements IUi {
 	 * i print all member list
 	 */
 	private void printMembers() {
-		Iterator<Person> it = members.iterator();		
+		Iterator<Person> it = members.iterator();
+		int i = 1;
 		while(it.hasNext()) {
 			Person p = it.next(); 
-			System.out.println("Name: " + p.getName() + " Registred at: " + p.getRegistrationDate());
+			System.out.println(i + ") Name: " + p.getName() + " Registred at: " + p.getRegistrationDate());
+			i++;
 		}		
 	}
 	

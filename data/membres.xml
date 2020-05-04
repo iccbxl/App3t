@@ -63,4 +63,28 @@
     <registrationDate>2020-05-04</registrationDate>
     <books/>
   </person>
+  <person>
+    <id>8d3fcce6-00ae-4995-8bd5-8e02f81619d9</id>
+    <name>Veronica campos</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-04</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>16ab000e-7a43-4d23-9ff9-fd0a57ea7bc4</id>
+    <name>maria dos</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-04</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>271afdca-b135-484c-b148-8a90f494484a</id>
+    <name>maria</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-04</registrationDate>
+    <books/>
+  </person>
 </list>
