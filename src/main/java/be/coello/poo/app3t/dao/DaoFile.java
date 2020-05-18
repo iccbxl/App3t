@@ -27,7 +27,7 @@ public class DaoFile implements IDao {
 	public DaoFile() {
 		
 		//this.filename = System.getProperty("user.home").concat("/home/robin/ws2019-2020/mavenTest/mavenTest/data/membres.xml");  
-		this.filename = "/home/robin/ws2019-2020/mavenTest/mavenTest/data/membres.xml";  
+		this.filename = "/home/robin/ws2019-2020/App3t/data/membres.xml";  
 		
 		//this.filename = "members.xml"; 
 	}
