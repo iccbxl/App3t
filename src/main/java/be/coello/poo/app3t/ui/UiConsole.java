@@ -49,16 +49,16 @@ public class UiConsole  implements IUi {
 		System.err.print("-- MEMBERS --\n"
 				+ " 1 - List \n"
 				+ " 2 - Add \n"
-				+ " 3 - Delete\n"
-				+ " 4 - Edit\n"
-				+ " 5 - Search\n"
+				+ " 3 - Delete *\n"
+				+ " 4 - Edit *\n"
+				+ " 5 - Search *\n"
 				+ ""
 				+ "-- BOOKS --\n"
 				+ " 11 - List \n"
 				+ " 12 - Add \n"
-				+ " 13 - Delete \n"
-				+ " 14 - Edit \n"
-				+ " 15 - Search \n"
+				+ " 13 - Delete *\n"
+				+ " 14 - Edit *\n"
+				+ " 15 - Search *\n"
 				+ "-- LIBRARY \n"				
 				+ " 20 - Rent Book \n"
 				+ " 21 - Return book \n"
@@ -148,13 +148,17 @@ public class UiConsole  implements IUi {
 				
 				
 			case 4: // Edit MEMBER
+				// Show member info
+				// Ask for new data member, id emply, this data dont change
+				
 				// search a member by name o tel 
 				// ask new info
 				// save
 				// show new info
 				break;
 				
-			case 5: // Search a Member				
+			case 5: // Search a Member	
+				
 				break;
 				
 			case 6: 				
@@ -242,7 +246,10 @@ public class UiConsole  implements IUi {
 				break;				
 								
 				
-			case 20: // RENT Books						
+			case 20: // RENT Books				
+				// Search a book to rent (list books ready to rent)
+				// From list, select a book and add to person
+				//
 				break;				
 				
 			case 21: // REFOUND Books						
@@ -286,7 +293,7 @@ public class UiConsole  implements IUi {
 		while(it.hasNext()) {
 			Person p = it.next(); 
 			
-			System.out.println(i + ")\t"  + p.getRegistrationDate() + "\t" + p.getName() );
+			System.out.println(i + ")\t"  + p.getRegistrationDate() + "\t" + p.getName()   );
 			
 			i++;
 		}		
@@ -298,11 +305,15 @@ public class UiConsole  implements IUi {
 	 * Print all Books
 	 */
 	private void printAllBooks() {
+		
 		Iterator<Book> it = books.iterator();
 		int i = 1;
+		
+		System.out.println("# \t LANG \t PAGE \t TITLE");
+		
 		while(it.hasNext()) {
 			Book b = it.next(); 
-			System.out.println(i + ")\t Book: " + b.getTitle());
+			System.out.println(i + ")\t "+ b.getLangguage() + " \t " + b.getTotalpages() + "\t " + b.getTitle() + "");
 			i++;
 		}		
 	}

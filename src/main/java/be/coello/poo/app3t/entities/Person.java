@@ -16,7 +16,7 @@ public class Person {
 	
 	public Person(UUID id, String name) {		
 		this.id = id;
-		this.name = name.toUpperCase();				
+		this.name = name;				
 		this.tel = "";
 		this.maxBooks = 3; 
 		this.registrationDate = LocalDate.now();

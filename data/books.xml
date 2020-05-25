@@ -1,30 +1,30 @@
 <list>
   <book>
     <id>f1efa862-cfa2-468d-8240-1b15820cc535</id>
-    <title>Lunas</title>
-    <author>a</author>
-    <totalpages>1</totalpages>
-    <loanPeriod>14</loanPeriod>
+    <title>Padre rico, padre pobre</title>
+    <author> Robert Kiyosaki</author>
+    <totalpages>207</totalpages>
+    <loanPeriod>15</loanPeriod>
     <retalPrice>1.25</retalPrice>
-    <langguage>a</langguage>
+    <langguage>es</langguage>
   </book>
   <book>
     <id>1fbaa659-7e0a-416c-b741-41a6e7ae6340</id>
-    <title>a</title>
-    <author>a</author>
-    <totalpages>2</totalpages>
-    <loanPeriod>14</loanPeriod>
-    <retalPrice>1.25</retalPrice>
-    <langguage>a</langguage>
+    <title>Java, the complete reference</title>
+    <author>Herbert Schildt</author>
+    <totalpages>200</totalpages>
+    <loanPeriod>15</loanPeriod>
+    <retalPrice>1.1</retalPrice>
+    <langguage>fr</langguage>
   </book>
   <book>
     <id>27602ef2-89fb-4110-a5ae-48170af402a4</id>
-    <title>color rosa</title>
-    <author>desconocido</author>
+    <title>Testing with JUnit</title>
+    <author>Frank Appel</author>
     <totalpages>52</totalpages>
-    <loanPeriod>14</loanPeriod>
-    <retalPrice>1.25</retalPrice>
-    <langguage>es</langguage>
+    <loanPeriod>30</loanPeriod>
+    <retalPrice>2.5</retalPrice>
+    <langguage>gb</langguage>
   </book>
   <book>
     <id>ce3b7801-20cf-4e9e-9444-9ce908f0ef6a</id>
@@ -52,5 +52,14 @@
     <loanPeriod>14</loanPeriod>
     <retalPrice>1.25</retalPrice>
     <langguage>es</langguage>
+  </book>
+  <book>
+    <id>5d2b115f-f8fc-40a5-a213-cd67566b5558</id>
+    <title>Viaje al Centro de la tierra</title>
+    <author>Julio Verne</author>
+    <totalpages>350</totalpages>
+    <loanPeriod>14</loanPeriod>
+    <retalPrice>1.25</retalPrice>
+    <langguage>fr</langguage>
   </book>
 </list>
