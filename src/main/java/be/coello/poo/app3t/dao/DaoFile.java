@@ -291,12 +291,9 @@ public class DaoFile implements IDao {
 		File f = new File(filename);
 		FileWriter fr = null;
 		BufferedWriter br = null;
-
-		XStream xs = new XStream(new DomDriver());
-		
+		XStream xs = new XStream(new DomDriver());		
 		//Configuration du parser XML
-		xs.alias("person", Person.class);
-		
+		xs.alias("person", Person.class);		
 		if(!f.exists()) {
 			try {
 				f.createNewFile();
@@ -304,23 +301,18 @@ public class DaoFile implements IDao {
 				
 				e1.printStackTrace();
 			}
-		}
-		
+		}		
 		try {
 			try {
 				fr = new FileWriter(f);
-				br = new BufferedWriter(fr);
-				
-				xs.toXML(people, br);								
-				
+				br = new BufferedWriter(fr);			
+				xs.toXML(people, br);												
 			} finally {
 				br.close();
 				fr.close();
-				//System.out.println("Fin d'écriture." + filename);
-				
+				//System.out.println("Fin d'écriture." + filename);				
 			}
-		} catch(Exception e) {
-			
+		} catch(Exception e) {			
 			System.out.println(e);
 		}
 }
