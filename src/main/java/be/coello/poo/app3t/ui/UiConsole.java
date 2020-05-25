@@ -41,6 +41,8 @@ public class UiConsole  implements IUi {
 	
 	public void run() {
 		int choix; 
+		String name ;
+		String lastname ;
 		
 		
 		// menu		System.out.println("1 - Show all members");
@@ -57,8 +59,15 @@ public class UiConsole  implements IUi {
 				+ " 13 - Delete \n"
 				+ " 14 - Edit \n"
 				+ " 15 - Search \n"
+				+ "-- LIBRARY \n"				
 				+ " 20 - Rent Book \n"
-				+ " 21 - Refund book \n"
+				+ " 21 - Return book \n"
+				+ " 21 - Books by Member \n"
+				+ " 21 - Calcule rate rent book by member \n"
+				+ " 21 - Calcule rate refund late by book \n"
+				+ " 21 - Calcule days to refund a book \n"
+				+ " 21 - Export DB \n"
+				+ " 21 - Import  DB \n"
 				+ " 22 -------\n"
 				+ " 0 - Logout \n\n");
 		
@@ -72,7 +81,7 @@ public class UiConsole  implements IUi {
 		choix = s.nextInt(); 
 		s.nextLine();
 			
-		String name ;
+		
 
 		
 		
@@ -95,9 +104,9 @@ public class UiConsole  implements IUi {
 				
 			case 2:				
 				System.out.println("Member name please: ");
-				name = s.nextLine();				
-				Person newMember = new Person(UUID.randomUUID(), name); 				
-				metier.registre(newMember);				
+				name = s.nextLine();
+				Person newMember = new Person(UUID.randomUUID(), name); 					
+				metier.registre(newMember);					
 				//message = "Registre ok "; 				
 				System.err.print("- New Member add\n");
 				System.out.println(newMember.toString());
@@ -269,11 +278,16 @@ public class UiConsole  implements IUi {
 	 * print members that exist in this moment at members
 	 */
 	private void printMembers() {
+		
+		System.out.println("# \tREGISTRE DATE \t Name");
+		
 		Iterator<Person> it = members.iterator();
 		int i = 1;
 		while(it.hasNext()) {
 			Person p = it.next(); 
-			System.out.println(i + ")\t REGISTRE DATE: "  + p.getRegistrationDate() + " Name: " + p.getName());
+			
+			System.out.println(i + ")\t"  + p.getRegistrationDate() + "\t" + p.getName() );
+			
 			i++;
 		}		
 	}

@@ -14,21 +14,14 @@ public class Person {
 	private LocalDate registrationDate; 
 	private ArrayList<Book> books;
 	
-	public Person(UUID id, String name) {
-		
+	public Person(UUID id, String name) {		
 		this.id = id;
-		this.name = name;
-		
+		this.name = name.toUpperCase();				
 		this.tel = "";
 		this.maxBooks = 3; 
 		this.registrationDate = LocalDate.now();
 		this.books = new ArrayList<Book>();
 	}
-	
-
-
-
-
 
 	public UUID getId() {
 		return id;
@@ -76,7 +69,6 @@ public class Person {
 		return "Person [id=" + id + ", name=" + name + ", tel=" + tel + ", maxBooks="
 				+ maxBooks + ", registrationDate=" + registrationDate + ", books=" + books + "]";
 	}
-
 
 	public void borrows(Book book) {
 	     

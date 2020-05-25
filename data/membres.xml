@@ -127,4 +127,36 @@
     <registrationDate>2020-05-24</registrationDate>
     <books/>
   </person>
+  <person>
+    <id>6b4cb7dd-8897-4a01-90af-60601a019ac2</id>
+    <name>Robinson</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-25</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>350a971f-2e36-4c8b-a979-579369b7df5f</id>
+    <name>robinson coello</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-25</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>77d288c8-e596-4b2d-a9f8-7f9ac3b50c1b</id>
+    <name>ROBINSON</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-25</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>a55f58a5-4fcc-401c-a0ce-bcb02742325f</id>
+    <name>ANAMARIA</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-25</registrationDate>
+    <books/>
+  </person>
 </list>
