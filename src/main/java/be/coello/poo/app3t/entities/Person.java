@@ -70,9 +70,6 @@ public class Person {
 		this.books = books;
 	}
 
-
-
-	
 	
 	@Override
 	public String toString() {

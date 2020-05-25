@@ -59,7 +59,7 @@ public class MyLibrary {
 	
 	/**
 	 * Print the book list in the library
-	 * @return
+	 * 
 	 */
 	public int printBooks() {
 		int cpt = 0; 
@@ -80,7 +80,7 @@ public class MyLibrary {
 		
 		while(it.hasNext()) {
 			Person p = it.next();
-			System.out.println(++cpt + " - " p.getName());
+			//System.out.println(++cpt + " - " p.getName());
 		}
 		
 				

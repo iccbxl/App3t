@@ -7,11 +7,18 @@
 		<property name="filename" value="/home/robin/Documents/ws2019-2020/App3t/data/membres.xml" />
 	</bean>
 	
+	<bean id="daoFileBook" class="be.coello.poo.app3t.dao.DaoFileBook">
+		<property name="filename" value="/home/robin/Documents/ws2019-2020/App3t/data/books.xml" />
+	</bean>
+	
 	<bean id="metier" class="be.coello.poo.app3t.metier.Metier">
 		<property name="dao" ref="daoFile" />
+		<property name="daoBook" ref="daoFileBook" />
 	</bean>
 	
 	<bean id="uiConsole" class="be.coello.poo.app3t.ui.UiConsole">
 		<property name="metier" ref="metier" />
 	</bean>
+	
+	
 </beans>

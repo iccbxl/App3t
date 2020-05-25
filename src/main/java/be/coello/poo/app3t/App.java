@@ -15,15 +15,15 @@ public class App implements CommandLineRunner{
 	
 	
 	public static void main(String[] args) {
-			
-		//@SuppressWarnings("resource")
+				
+		@SuppressWarnings("resource")
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("spring-config.xml"); 
 		
 		ui = (IUi) ctx.getBean("uiConsole"); 
 		
-		System.out.println("start");
+		//System.out.println("start");
 		
-		System.out.println(System.getProperty("user.home"));
+		//System.out.println(System.getProperty("user.home"));
 		
 		ui.run();
 		

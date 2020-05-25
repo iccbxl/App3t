@@ -1,0 +1,56 @@
+<list>
+  <book>
+    <id>f1efa862-cfa2-468d-8240-1b15820cc535</id>
+    <title>Lunas</title>
+    <author>a</author>
+    <totalpages>1</totalpages>
+    <loanPeriod>14</loanPeriod>
+    <retalPrice>1.25</retalPrice>
+    <langguage>a</langguage>
+  </book>
+  <book>
+    <id>1fbaa659-7e0a-416c-b741-41a6e7ae6340</id>
+    <title>a</title>
+    <author>a</author>
+    <totalpages>2</totalpages>
+    <loanPeriod>14</loanPeriod>
+    <retalPrice>1.25</retalPrice>
+    <langguage>a</langguage>
+  </book>
+  <book>
+    <id>27602ef2-89fb-4110-a5ae-48170af402a4</id>
+    <title>color rosa</title>
+    <author>desconocido</author>
+    <totalpages>52</totalpages>
+    <loanPeriod>14</loanPeriod>
+    <retalPrice>1.25</retalPrice>
+    <langguage>es</langguage>
+  </book>
+  <book>
+    <id>ce3b7801-20cf-4e9e-9444-9ce908f0ef6a</id>
+    <title>demostacios</title>
+    <author>s</author>
+    <totalpages>22</totalpages>
+    <loanPeriod>14</loanPeriod>
+    <retalPrice>1.25</retalPrice>
+    <langguage>se</langguage>
+  </book>
+  <book>
+    <id>1caf1902-12a0-4657-86d8-e3a83fe6c3db</id>
+    <title>s</title>
+    <author>s</author>
+    <totalpages>1</totalpages>
+    <loanPeriod>14</loanPeriod>
+    <retalPrice>1.25</retalPrice>
+    <langguage>s</langguage>
+  </book>
+  <book>
+    <id>6dcfc5e3-14b1-43cd-b8c4-f9686333666b</id>
+    <title>book white</title>
+    <author>ana Maria</author>
+    <totalpages>52</totalpages>
+    <loanPeriod>14</loanPeriod>
+    <retalPrice>1.25</retalPrice>
+    <langguage>es</langguage>
+  </book>
+</list>

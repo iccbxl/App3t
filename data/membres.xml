@@ -16,14 +16,6 @@
     <books/>
   </person>
   <person>
-    <id>2e42139b-2380-4694-912c-344092e7b54f</id>
-    <name>ana</name>
-    <tel></tel>
-    <maxBooks>3</maxBooks>
-    <registrationDate>2020-05-04</registrationDate>
-    <books/>
-  </person>
-  <person>
     <id>522b525c-52f0-4dbd-935d-1df75a168f14</id>
     <name>Rafico mashi</name>
     <tel></tel>
@@ -42,14 +34,6 @@
   <person>
     <id>aaca686f-3d0c-4128-a883-52ef296cb487</id>
     <name>jamil mahuad</name>
-    <tel></tel>
-    <maxBooks>3</maxBooks>
-    <registrationDate>2020-05-04</registrationDate>
-    <books/>
-  </person>
-  <person>
-    <id>23d864fb-1dea-4e7b-a6c4-ffb0588eb274</id>
-    <name>ana</name>
     <tel></tel>
     <maxBooks>3</maxBooks>
     <registrationDate>2020-05-04</registrationDate>
@@ -85,6 +69,62 @@
     <tel></tel>
     <maxBooks>3</maxBooks>
     <registrationDate>2020-05-04</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>8112289b-a1b4-4458-b1b0-8461bb4e4856</id>
+    <name>roberto</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-18</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>69899ebf-a3d9-45c6-b69a-7981b941f9c5</id>
+    <name>robs</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-18</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>a9ea57c0-8f29-491a-9aca-83da31cb8ec1</id>
+    <name>rosa</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-18</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>11903099-515b-4d43-81a3-e7794f39b693</id>
+    <name>demos</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-18</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>ba121335-87f8-4a0e-b80c-dd69e16f72fb</id>
+    <name>paola</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-24</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>b6d13822-5d27-46bf-924b-d643fb8bb9e6</id>
+    <name>feo</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-24</registrationDate>
+    <books/>
+  </person>
+  <person>
+    <id>14850894-0e30-4f0a-bd1e-4bd41008861c</id>
+    <name>sonia</name>
+    <tel></tel>
+    <maxBooks>3</maxBooks>
+    <registrationDate>2020-05-24</registrationDate>
     <books/>
   </person>
 </list>

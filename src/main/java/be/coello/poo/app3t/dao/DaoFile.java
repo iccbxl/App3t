@@ -24,18 +24,18 @@ public class DaoFile implements IDao {
 	private String filename; 
 	
 	
-	public DaoFile() {
-		
+	public DaoFile() {		
 		//this.filename = System.getProperty("user.home").concat("/home/robin/ws2019-2020/mavenTest/mavenTest/data/membres.xml");  
-		this.filename = "/home/robin/ws2019-2020/App3t/data/membres.xml";  
-		
-		//this.filename = "members.xml"; 
+		this.filename = "/home/robin/ws2019-2020/App3t/data/membres.xml";  				
 	}
 	
 	public DaoFile(String filename) {
 		this.filename = filename;  
 	}
 		
+
+	
+	
 	public String getFilemane() {
 		return filename; 
 	}
@@ -44,9 +44,12 @@ public class DaoFile implements IDao {
 		this.filename = filename; 
 	}
 	
-	/**
-	 * 
-	 */
+
+
+	
+	
+	
+	
 	public List<Person> findAll() {
 		this.people = readXMLFile(filename);
 		
@@ -226,11 +229,11 @@ public class DaoFile implements IDao {
 						sb.append(line);
 					}
 					
-					System.out.println("We can read");
+					//System.out.println("We can read");
 				} finally {
 					br.close();
 					fr.close();
-					System.out.println("Fin de lecture" + filename);
+					//System.out.println("Fin de lecture" + filename);
 				}
 			} catch(Exception e) {
 				System.err.println(e);
@@ -313,7 +316,7 @@ public class DaoFile implements IDao {
 			} finally {
 				br.close();
 				fr.close();
-				System.out.println("Fin d'écriture." + filename);
+				//System.out.println("Fin d'écriture." + filename);
 				
 			}
 		} catch(Exception e) {
@@ -321,5 +324,11 @@ public class DaoFile implements IDao {
 			System.out.println(e);
 		}
 }
+	
+	
+	
+	
+	
+	
 
 }

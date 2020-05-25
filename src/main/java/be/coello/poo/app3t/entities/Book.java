@@ -3,10 +3,20 @@ package be.coello.poo.app3t.entities;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.UUID;
-
+/**
+ * Book clas description
+ * @author robin
+ * 
+ *
+ */
 public class Book {
-
-	protected UUID id; 
+	/**
+	 * Book's id
+	 */
+	protected UUID id;
+	/**
+	 * Book's title
+	 */
 	protected String title; 
 	protected String author; 
 	protected short totalpages; 

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
 
+import be.coello.poo.app3t.entities.Book;
 import be.coello.poo.app3t.entities.Person;
 import be.coello.poo.app3t.metier.IMetier;
 
@@ -14,7 +15,13 @@ public class UiConsole  implements IUi {
 	private IMetier metier; 
 	private Scanner s = new Scanner(System.in); 
 	private List<Person> members = new ArrayList<Person>(); 
-	private String message =" -- not mesage -9-"; 
+	private List<Book> books = new ArrayList<Book>(); 
+	private String title;
+	private String author;
+	private short totalpages;
+	private String langguage;
+	
+	private String message =" ---------------------------------------------------------------"; 
 	
 	public UiConsole() {		
 	}
@@ -37,11 +44,23 @@ public class UiConsole  implements IUi {
 		
 		
 		// menu		System.out.println("1 - Show all members");
-		System.err.print("-----M E N U -------------------------\n"
-				+ "1 - List Members \n"
-				+ "2 - Add Members \n"
-				+ "3 - Delete Members \n"
-				+ "0 - Logout \n\n");
+		System.err.print("-- MEMBERS --\n"
+				+ " 1 - List \n"
+				+ " 2 - Add \n"
+				+ " 3 - Delete\n"
+				+ " 4 - Edit\n"
+				+ " 5 - Search\n"
+				+ ""
+				+ "-- BOOKS --\n"
+				+ " 11 - List \n"
+				+ " 12 - Add \n"
+				+ " 13 - Delete \n"
+				+ " 14 - Edit \n"
+				+ " 15 - Search \n"
+				+ " 20 - Rent Book \n"
+				+ " 21 - Refund book \n"
+				+ " 22 -------\n"
+				+ " 0 - Logout \n\n");
 		
 		//System.out.println("1 - List members");
 		//System.out.println("2 - Add members");
@@ -59,6 +78,7 @@ public class UiConsole  implements IUi {
 		
 		// Traitement comande user
 		
+
 		switch(choix) {
 			case 0:
 				message = "By bye"; 
@@ -70,8 +90,7 @@ public class UiConsole  implements IUi {
 				System.err.print("-----------------------------------\n");
 				System.err.print("- MEMBERS LIST\n");
 				printMembers();	
-				System.err.print("-----------------------------------\n");
-				message = "end Menu 1";				
+				message = "Tanks";				
 				break;
 				
 			case 2:				
@@ -87,7 +106,7 @@ public class UiConsole  implements IUi {
 				members = metier.getMembers();	
 				printMembers();
 				System.err.print("-----------------------------------\n");
-				message = "end Menu 2";		
+				message = "Tanks";		
 				break;				
 				///############################################
 				 
@@ -97,35 +116,39 @@ public class UiConsole  implements IUi {
 				System.out.print("Veuillez entre le nom du membre: ");				
 				name = s.nextLine();								
 				members = metier.findByName(name);								
-				System.out.println("Chosse the member to delete");
-				printMembers();								
-				choix = s.nextInt(); s.nextLine();				
-				// chosse the x person from the member list and delete				
-				p = members.get( choix - 1 );				
-				metier.unregistre(p);				
-				message = "end Menu 3";		 				
+						
+				
+				if(members.isEmpty()) {
+					System.out.println("Not member with1 this name");							
+				} else {
+					System.out.println("We find");	
+					printMembers(members);	
+					System.out.println("Wich member you want delete?");
+					choix = s.nextInt(); s.nextLine();				
+					// chosse the x person from the member list and delete				
+					p = members.get( choix - 1 );				
+					metier.unregistre(p);	
+					
+				}
+				
+				
+				message = "End Delete Menu";		 				
 				break;
 				
 				
 				
 				
-			case 4: // Edit
+			case 4: // Edit MEMBER
 				// search a member by name o tel 
 				// ask new info
 				// save
-				// show ne info
+				// show new info
 				break;
 				
-				
-				
-			case 5: 
-				
+			case 5: // Search a Member				
 				break;
 				
-				
-				
-			case 6: 
-				
+			case 6: 				
 				break;
 				
 				
@@ -134,10 +157,87 @@ public class UiConsole  implements IUi {
 				
 				break;
 				
+				 
+			case 11: // LIST Books
+				// Get all members
+				books = metier.getBooks();								
+				// print all book
+				System.err.print("-----------------------------------\n");
+				System.err.print("- Book LIST \n");
+				printAllBooks();	
+				
+							
+				break;	
+				
+			case 12: // ADD Books				
+				
+				System.out.println("Book's title please:");
+				title = s.nextLine();			
+				
+				System.out.println("Book's author please:");
+				author = s.nextLine();			
+				
+				System.out.println("Book's langguage ( use onli 2 letters) :");
+				langguage = s.nextLine();	
+				
+				System.out.println("Book's total page please:");
+				totalpages = s.nextShort();			
+														
+				Book b = new Book(UUID.randomUUID(), title, author, totalpages, langguage); 
+				
+				metier.registre(b);				
+						
+				System.err.print("New Book add\n");
+				
+				System.out.println(b.toString());
+				
+				System.err.print("-----------------------------------\n");							
+				System.err.print("Book List\n");
+				books = metier.getBooks();	
+				printAllBooks();
+				
+				break;				
+				
+				
+			case 13: // DELETE Books	
+				Book b2d = null;
+				System.err.print("-- DELETE A Book ---------------------------------\n");
+				System.out.print("Veuillez entre le title du book: ");				
+				title = s.nextLine();								
+				books = metier.findByTitle(title);								
+						
+				if(books.isEmpty()) {
+					System.out.println("Dont find this book");
+				}else{
+					System.out.println("Book's list");
+					System.out.println("Select a number to delete");
+					choix = s.nextInt(); 
+					b2d = books.get(choix - 1);
+					metier.unregistre(b2d);
+					
+					
+				}
 				
 				
 				
 				
+				break;				
+				
+				
+			case 14: // EDIT Books						
+				break;				
+				
+				
+				
+			case 15: // SEARCH Books						
+				break;				
+								
+				
+			case 20: // RENT Books						
+				break;				
+				
+			case 21: // REFOUND Books						
+				break;				
 				
 			default: 
 				System.out.println("Commande error");
@@ -149,28 +249,46 @@ public class UiConsole  implements IUi {
 	}
 	
 	
+	
 	/**
 	 * i give the members list to print
 	 * @param members
 	 */
 	private void printMembers(List<Person> members) {		
-		Iterator<Person> it = members.iterator();		
+		Iterator<Person> it = members.iterator();
+		int i=1;
 		while(it.hasNext()) {
 			Person p = it.next(); 
-				System.out.println("Name: " + p.getName() + " Registred at: " + p.getRegistrationDate());			
+				System.out.println(i + ")\t REGISTRE DATE: "  + p.getRegistrationDate() + " Name: " + p.getName());
+				i++;
 		}		
 	}
 	
 	
 	/**
-	 * i print all member list
+	 * print members that exist in this moment at members
 	 */
 	private void printMembers() {
 		Iterator<Person> it = members.iterator();
 		int i = 1;
 		while(it.hasNext()) {
 			Person p = it.next(); 
-			System.out.println(i + ") Name: " + p.getName() + " Registred at: " + p.getRegistrationDate());
+			System.out.println(i + ")\t REGISTRE DATE: "  + p.getRegistrationDate() + " Name: " + p.getName());
+			i++;
+		}		
+	}
+	
+	
+	
+	/**
+	 * Print all Books
+	 */
+	private void printAllBooks() {
+		Iterator<Book> it = books.iterator();
+		int i = 1;
+		while(it.hasNext()) {
+			Book b = it.next(); 
+			System.out.println(i + ")\t Book: " + b.getTitle());
 			i++;
 		}		
 	}
